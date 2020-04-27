@@ -1,0 +1,28 @@
+.title{
+	text-align: center;
+}
+.post{
+	position: relative;
+	display: flex;
+    flex-direction: column;
+	width: calc(100% / 4 - 10px);
+	background-color: #d5d2b3;
+	margin-bottom: 25px;
+	justify-content: space-between;
+}
+.postWrapper{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.postTitle{
+	text-transform: capitalize;
+	text-align: center;
+	background-color: #e5e0e0;
+}
+.postBody{
+	padding: 10px 15px;
+}
+.button {
+	padding: 8px;
+}

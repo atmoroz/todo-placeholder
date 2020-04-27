@@ -1,0 +1,24 @@
+.postForm{
+	display: flex;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+	min-width: 100%;
+	height: 230px;
+}
+.postInput{
+	padding: 10px 5px;
+    width: 90%;
+}
+.postTextarea{
+	padding: 10px 5px;
+    width: 90%;
+	height: 50px;
+}
+.postLabel{
+	margin-bottom: 10px;
+}
+.postButton{
+	padding: 8px 0;
+	width: 100%;
+}
