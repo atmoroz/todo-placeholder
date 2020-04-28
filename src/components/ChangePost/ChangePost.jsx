@@ -7,14 +7,14 @@ const ChangePost = ({ id, title, body, setShowForm, userId }) => {
   const [titlePost, setTitlePost] = useState(title);
   const [bodyPost, setBodyPost] = useState(body);
   const dispatch = useDispatch();
-  const allPosts = useSelector(state => state.Posts);
+  const allPosts = useSelector(state => state.posts);
 
   const submitForm = e => {
     e.preventDefault();
     setShowForm(prev => !prev);
     let index = allPosts.findIndex(post => post.id === id);
     allPosts[index] = { ...allPosts[index], spin: true };
-    dispatch(requestUpdatePostRequest(id, titlePost, bodyPost, userId));
+    dispatch(requestUpdatePostRequest({ id, titlePost, bodyPost, userId }));
     return;
   };
   const changePost = ({ target: { name, value } }) => {

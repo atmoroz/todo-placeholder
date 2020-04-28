@@ -19,13 +19,10 @@ export  const requestAllPostsError = (error) => {
 	}
 }
 
-export const requestUpdatePostRequest = (id, titlePost, bodyPost, userId) => {
+export const requestUpdatePostRequest = (data) => {
 	return {
 		type: type.FETCH_POST_UPDATE_REQUEST,
-		id,
-		titlePost,
-		bodyPost,
-		userId,
+		payload: data
 	}
 }
 

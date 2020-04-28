@@ -8,7 +8,7 @@ import './allPosts.css';
 import Loading from '../Loading/Loading';
 const AllPosts = () => {
   const dispatch = useDispatch();
-  const { isLoading, Posts } = useSelector(store => store);
+  const { isLoading, posts } = useSelector(store => store);
 
   useEffect(() => {
     dispatch(requestAllPosts());
@@ -29,7 +29,7 @@ const AllPosts = () => {
             }}
           />
         ) : (
-          Posts.map(post => (
+          posts.map(post => (
             <AllPostsContainer
               key={post.id}
               title={post.title}

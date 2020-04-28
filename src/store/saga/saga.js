@@ -1,8 +1,9 @@
-import { put, call, takeLatest } from 'redux-saga/effects';
+import { put, call, takeLatest, select } from 'redux-saga/effects';
 
 import * as type from '../types/types';
 import { requestAllPostsSuccess, requestAllPostsError, requestUpdatePostSuccess, requestUpdatePostFailure } from '../action/action';
 import { getList, updatePost } from '../../utils/posts';
+import { selectPosts } from '../selectors/selectors';
 
 
 function* watchFetchAllPosts() {
@@ -14,10 +15,14 @@ function* watchFetchAllPosts() {
 	}
 }
 
-function* watchFetchUpdatePost(param) {
+function* watchFetchUpdatePost({payload}) {
+	console.log(selectPosts);
 	try{
-		const { data } = yield call(() => updatePost(param));
-		yield put(requestUpdatePostSuccess(data));
+		const { data } = yield call(updatePost, payload);
+		const {posts} = yield select(state => state);
+		let index =  posts.findIndex(post => post.id === data.id);
+		posts[index] = data;
+		yield put(requestUpdatePostSuccess(posts));
 	}catch(e){
 		yield put(requestUpdatePostFailure(e))
 	}
